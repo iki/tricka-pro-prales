@@ -1,0 +1,21 @@
+{
+  "name": "@tricka-pro-prales/root",
+  "version": "0.1.0",
+  "description": "Backer Reward Survey",
+  "repository": "https://github.com/iki/tricka-pro-prales",
+  "author": "iki (https://github.com/iki)",
+  "license": "MIT",
+  "keywords": [
+    "crowdfunding",
+    "backers",
+    "rewards",
+    "survey"
+  ],
+  "scripts": {
+    "lint": "prettier --check '**/*'",
+    "format": "prettier --write '**/*'"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.1"
+  }
+}

@@ -1,0 +1,39 @@
+table:
+  name: users
+  schema: public
+configuration:
+  comment: null
+  custom_column_names:
+    is_organizer: isOrganizer
+    is_tester: isTester
+  custom_name: user
+  custom_root_fields:
+    delete: usersDelete
+    delete_by_pk: userDelete
+    insert: usersInsert
+    insert_one: userInsert
+    select: users
+    select_aggregate: usersAggregate
+    select_by_pk: user
+    update: usersUpdate
+    update_by_pk: userUpdate
+array_relationships:
+- name: pledges
+  using:
+    foreign_key_constraint_on:
+      column: email
+      table:
+        name: pledges
+        schema: public
+select_permissions:
+- permission:
+    columns:
+    - email
+    - is_organizer
+    - is_tester
+    - name
+    - pledge
+    filter:
+      token:
+        _eq: x-hasura-user-token
+  role: user

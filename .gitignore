@@ -1,0 +1,9 @@
+# Format: https://git-scm.com/docs/gitignore.html
+
+# Local envs
+.env
+.env.*
+.permissions.json
+
+# Dependencies
+node_modules

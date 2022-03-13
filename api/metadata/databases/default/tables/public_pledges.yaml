@@ -1,0 +1,37 @@
+table:
+  name: pledges
+  schema: public
+configuration:
+  comment: null
+  custom_column_names:
+    is_test: isTest
+  custom_name: pledge
+  custom_root_fields:
+    delete: pledgesDelete
+    delete_by_pk: pledgeDelete
+    insert: pledgesInsert
+    insert_one: pledgeInsert
+    select: pledges
+    select_aggregate: pledgesAggregate
+    select_by_pk: pledge
+    update: pledgesUpdate
+    update_by_pk: pledgeUpdate
+object_relationships:
+- name: rewardByReward
+  using:
+    foreign_key_constraint_on: reward
+- name: user
+  using:
+    foreign_key_constraint_on: email
+select_permissions:
+- permission:
+    columns:
+    - amount
+    - date
+    - note
+    - reward
+    filter:
+      user:
+        token:
+          _eq: x-hasura-user-token
+  role: user

@@ -1,0 +1,71 @@
+version: '3.6'
+
+services:
+  db:
+    image: postgres:12
+    restart: always
+
+    ports:
+      - '5400:5432'
+
+    ## Settings: https://hub.docker.com/_/postgres/
+    environment:
+      POSTGRES_DB: hasura
+      POSTGRES_USER: hasura
+      POSTGRES_PASSWORD: dev
+
+  auth:
+    build: ../auth
+    command: npm run dev
+
+    restart: always
+
+    ports:
+      - '8001:7000'
+
+    volumes:
+      - ../auth:/server
+
+  hasura:
+    labels:
+      version: v2.4.0
+
+    image: hasura/graphql-engine:v2.4.0.cli-migrations-v3.amd64
+    restart: always
+    depends_on: ['db']
+
+    ports:
+      - '8000:8080'
+
+    ## Migrations: https://hasura.io/docs/latest/graphql/core/migrations/advanced/auto-apply-migrations.html
+    volumes:
+      - ./migrations:/hasura-migrations
+      - ./metadata:/hasura-metadata
+
+    ## Settings:  https://hasura.io/docs/latest/graphql/core/deployment/graphql-engine-flags/reference.html
+    environment:
+      ## Postgres default database connected to `PG_DATABASE_URL` in metadata
+      PG_DATABASE_URL: postgres://hasura:dev@db:5432/hasura
+
+      ## Postgres metadata database
+      HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://hasura:dev@db:5432/hasura
+
+      ## Authentication webhook, needs an admin secret
+      HASURA_GRAPHQL_AUTH_HOOK: http://auth:7000/webhook/auth
+
+      ## Admin secret, needed to deny full public access and to allow authorization and roles
+      HASURA_GRAPHQL_ADMIN_SECRET: $HASURA_GRAPHQL_ADMIN_SECRET
+
+      ## Enable the console served by engine
+      ## To track migrations, always do any database changes in Hasura CLI console instead
+      # HASURA_GRAPHQL_ENABLE_CONSOLE: 'true' ## Default: 'false'
+
+      ## Include error internals in API responses, recommended to disable in production
+      HASURA_GRAPHQL_DEV_MODE: 'true'
+
+      ## Logging: https://hasura.io/docs/latest/graphql/core/deployment/logging.html#log-types
+      # HASURA_GRAPHQL_LOG_LEVEL: debug  ## debug | info (default) | warning | error
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+
+      ## Disable default anonymous engine telemetry
+      # HASURA_GRAPHQL_ENABLE_TELEMETRY: 'false'

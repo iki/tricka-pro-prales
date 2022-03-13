@@ -1,0 +1,45 @@
+table:
+  name: rewards
+  schema: public
+configuration:
+  comment: null
+  custom_column_names:
+    max_tshirts: maxTshirts
+    min_pledge: minPledge
+  custom_name: reward
+  custom_root_fields:
+    delete: rewardsDelete
+    delete_by_pk: rewardDelete
+    insert: rewardsInsert
+    insert_one: rewardInsert
+    select: rewards
+    select_aggregate: rewardsAggregate
+    select_by_pk: reward
+    update: rewardsUpdate
+    update_by_pk: rewardUpdate
+object_relationships:
+- name: rewardKey
+  using:
+    foreign_key_constraint_on: id
+- name: tshirtByTshirt
+  using:
+    foreign_key_constraint_on: tshirt
+array_relationships:
+- name: pledges
+  using:
+    foreign_key_constraint_on:
+      column: reward
+      table:
+        name: pledges
+        schema: public
+select_permissions:
+- permission:
+    columns:
+    - max_tshirts
+    - min_pledge
+    - order
+    - id
+    - name
+    - tshirt
+    filter: {}
+  role: public

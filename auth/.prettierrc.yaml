@@ -1,0 +1,30 @@
+# Options:  https://prettier.io/docs/en/options.html
+# - Config: https://github.com/davidtheclark/cosmiconfig#cosmiconfig
+
+# Common
+printWidth: 80
+endOfLine: lf # *lf|crlf|cr|auto
+tabWidth: 2
+useTabs: false
+
+# JavaScript
+semi: false # *true
+singleQuote: true # *false|true (except JSX)
+bracketSpacing: true
+bracketSameLine: false
+trailingComma: all # *es5|none|all (except TS interfaces)
+arrowParens: avoid # *always|avoid
+
+# File types
+overrides:
+  - files: '*.@(js|jsx)'
+    # options:
+    # parser: babel # *babel|babel-ts|babel-flow|flow|espree|meriyah|acorn
+
+  - files: '*.json'
+    # options:
+    # parser: json # *json|json5|json-stringify
+
+  - files: '*.@(yml|yaml)'
+    # options:
+    # parser: yaml

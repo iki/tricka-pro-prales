@@ -1,0 +1,42 @@
+table:
+  name: tshirts
+  schema: public
+configuration:
+  comment: null
+  custom_column_names: {}
+  custom_name: tshirt
+  custom_root_fields:
+    delete: tshirtsDelete
+    delete_by_pk: tshirtDelete
+    insert: tshirtsInsert
+    insert_one: tshirtInsert
+    select: tshirts
+    select_aggregate: tshirtsAggregate
+    select_by_pk: tshirt
+    update: tshirtsUpdate
+    update_by_pk: tshirtUpdate
+object_relationships:
+- name: colorKey
+  using:
+    foreign_key_constraint_on: color
+- name: genderKey
+  using:
+    foreign_key_constraint_on: gender
+array_relationships:
+- name: rewards
+  using:
+    foreign_key_constraint_on:
+      column: tshirt
+      table:
+        name: rewards
+        schema: public
+select_permissions:
+- permission:
+    columns:
+    - order
+    - color
+    - gender
+    - id
+    - name
+    filter: {}
+  role: public

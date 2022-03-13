@@ -1,0 +1,31 @@
+table:
+  name: color_keys
+  schema: public
+configuration:
+  comment: null
+  custom_column_names: {}
+  custom_name: colorKey
+  custom_root_fields:
+    delete: colorKeysDelete
+    delete_by_pk: colorKeyDelete
+    insert: colorKeysInsert
+    insert_one: colorKeyInsert
+    select: colorKeys
+    select_aggregate: colorKeysAggregate
+    select_by_pk: colorKey
+    update: colorKeysUpdate
+    update_by_pk: colorKeyUpdate
+array_relationships:
+- name: tshirts
+  using:
+    foreign_key_constraint_on:
+      column: color
+      table:
+        name: tshirts
+        schema: public
+select_permissions:
+- permission:
+    columns:
+    - id
+    filter: {}
+  role: public

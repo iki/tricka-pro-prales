@@ -1,0 +1,6 @@
+{
+  "passCodes": {
+    "12345678901234567890abcdef": "s1m1p2t5"
+  },
+  "testCodesRegexp": "^test"
+}

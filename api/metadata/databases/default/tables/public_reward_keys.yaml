@@ -1,0 +1,32 @@
+table:
+  name: reward_keys
+  schema: public
+is_enum: true
+configuration:
+  comment: null
+  custom_column_names: {}
+  custom_name: rewardKey
+  custom_root_fields:
+    delete: rewardKeysDelete
+    delete_by_pk: rewardKeyDelete
+    insert: rewardKeysInsert
+    insert_one: rewardKeyInsert
+    select: rewardKeys
+    select_aggregate: rewardKeysAggregate
+    select_by_pk: rewardKey
+    update: rewardKeysUpdate
+    update_by_pk: rewardKeyUpdate
+object_relationships:
+- name: reward
+  using:
+    foreign_key_constraint_on:
+      column: id
+      table:
+        name: rewards
+        schema: public
+select_permissions:
+- permission:
+    columns:
+    - id
+    filter: {}
+  role: public

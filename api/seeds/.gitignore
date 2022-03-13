@@ -1,0 +1,5 @@
+# seeds
+*.sql
+
+# except public seeds
+!*.public.sql

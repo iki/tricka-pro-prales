@@ -1,0 +1,12 @@
+{
+  "name": "Survey Link",
+  "description": "Link survey steps with redirects",
+  "repository": "https://github.com/iki/tricka-pro-prales",
+  "keywords": [
+    "survey",
+    "link",
+    "redirect",
+    "node",
+    "express"
+  ]
+}
