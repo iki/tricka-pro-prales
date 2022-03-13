@@ -1,0 +1,43 @@
+{
+  "name": "@tricka-pro-prales/api",
+  "version": "0.1.0",
+  "description": "Backer Reward Survey DB and API",
+  "repository": "https://github.com/iki/tricka-pro-prales",
+  "author": "iki (https://github.com/iki)",
+  "license": "MIT",
+  "keywords": [
+    "crowdfunding",
+    "backers",
+    "rewards",
+    "survey",
+    "api",
+    "graphql",
+    "hasura"
+  ],
+  "scripts": {
+    "console": "hasura console",
+    "migrate": "hasura --database-name default migrate apply",
+    "migrate:up": "m(){ hasura --database-name default migrate apply --up ${1:-1}; }; m",
+    "migrate:down": "m(){ hasura --database-name default migrate apply --down ${1:-1}; }; m",
+    "migrate:redo": "m(){ npm run migrate:down ${1:-1} && npm run migrate:up ${1:-1}; }; m",
+    "migrate:status": "hasura --database-name default migrate status",
+    "hasura": "hasura --database-name default",
+    "cloud": "hasura --database-name default --envfile .env.cloud",
+    "seed": "hasura --database-name default seed apply",
+    "migrate:seed": "npm run migrate:seed:add && npm run -- migrate",
+    "migrate:reseed": "npm run migrate:seed:add && npm run migrate:down && npm run migrate:up",
+    "migrate:seed:add": "M=migrations/default/9_seed S=seeds/default m=$M/up.sql md=$M/down.sql sd=$S/.reset.sql; echo [$M]; false; [ -d $M ] || mkdir -p $M; : > $m; for s in $S/*.sql; do echo + $s; echo -- $s >> $m; cat $s >> $m; echo >> $m; echo >> $m; done; [ ! -f $sd ] || ! echo - $sd || cp -f $sd $md",
+    "schema:coerce": "npm run -- withenv schema:coerce:run",
+    "schema:coerce:run": "hasura-camelize --relations --pgMaterializedViews --host \"$HASURA_GRAPHQL_ENDPOINT\" --secret \"$HASURA_GRAPHQL_ADMIN_SECRET\"",
+    "withenv": "dotenv -- npm run yamlenv npm run --",
+    "yamlenv": "yamlenv(){ set HASURA_GRAPHQL_ENDPOINT endpoint; set HASURA_GRAPHQL_ADMIN_SECRET admin_secret; $@; }; set(){ [ -n \"${!1}\" ] || export $1=\"$(sed -n \"/^$2:/s/$2: *//p\" config.yaml)\"; }; yamlenv",
+    "lint": "cd .. && npm run lint",
+    "format": "cd .. && npm run format",
+    "logs": "docker logs api-hasura-1 -f",
+    "logs:db": "docker logs api-db-1 -f"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^5.1.0",
+    "hasura-camelize": "^1.2.4"
+  }
+}

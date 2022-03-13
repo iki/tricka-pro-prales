@@ -1,0 +1,24 @@
+table:
+  name: delivery_keys
+  schema: public
+is_enum: true
+configuration:
+  comment: null
+  custom_column_names: {}
+  custom_name: deliveryKey
+  custom_root_fields:
+    delete: deliveryKeysDelete
+    delete_by_pk: deliveryKeyDelete
+    insert: deliveryKeysInsert
+    insert_one: deliveryKeyInsert
+    select: deliveryKeys
+    select_aggregate: deliveryKeysAggregate
+    select_by_pk: deliveryKey
+    update: deliveryKeysUpdate
+    update_by_pk: deliveryKeyUpdate
+select_permissions:
+- permission:
+    columns:
+    - id
+    filter: {}
+  role: public

@@ -1,0 +1,13 @@
+{
+  "name": "Hasura Auth Webhook Pass",
+  "description": "Hasura GraphQL Engine Auth Webhook passing allowed X-Hasura- headers",
+  "repository": "https://github.com/iki/tricka-pro-prales",
+  "keywords": [
+    "hasura",
+    "graphql",
+    "auth",
+    "webhook",
+    "node",
+    "express"
+  ]
+}

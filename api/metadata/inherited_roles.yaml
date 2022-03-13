@@ -1,0 +1,8 @@
+- role_name: backer
+  role_set:
+  - user
+  - public
+- role_name: organizer
+  role_set:
+  - user
+  - public

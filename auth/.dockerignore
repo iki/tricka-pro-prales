@@ -1,0 +1,6 @@
+# Format: https://docs.docker.com/engine/reference/builder/#dockerignore-file
+
+# Ignore all but JavaScript sources and package metadata
+**/*
+!*.js
+!package*.json

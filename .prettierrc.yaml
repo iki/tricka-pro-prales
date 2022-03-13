@@ -1,0 +1,62 @@
+# Options:  https://prettier.io/docs/en/options.html
+# - Config: https://github.com/davidtheclark/cosmiconfig#cosmiconfig
+# - SQL:    https://github.com/rx-ts/prettier/tree/master/packages/sql
+
+# Common
+printWidth: 80
+endOfLine: lf # *lf|crlf|cr|auto
+tabWidth: 2
+useTabs: false
+
+# JavaScript
+semi: false # *true
+singleQuote: true # *false|true (except JSX)
+bracketSpacing: true
+bracketSameLine: false
+trailingComma: all # *es5|none|all (except TS interfaces)
+arrowParens: avoid # *always|avoid
+
+# File types
+overrides:
+  - files: '*.@(js|jsx)'
+    # options:
+    # parser: babel # *babel|babel-ts|babel-flow|flow|espree|meriyah|acorn
+
+  - files: '*.@(ts|tsx)'
+    # options:
+    # parser: typescript # *typescript|babel-ts
+
+  - files: '*.@(gql|graphql)'
+    # options:
+    # parser: graphql
+
+  - files: '*.@(md|markdown)'
+    # options:
+    # parser: markdown # *markdown|mdx
+
+  - files: '*.json'
+    # options:
+    # parser: json # *json|json5|json-stringify
+
+  - files: '*.@(yml|yaml)'
+    # options:
+    # parser: yaml
+
+  - files: '*.html'
+    # options:
+    # parser: html # *html|vue|angular|lwc
+
+  - files: '*.@(c|le|sa|sc)ss'
+    # options:
+    # parser: css # *css|less|scss
+
+  - files: '*.sql'
+    options: # prettier-plugin-sql (limited, use standalone/vscode prettier-sql instead)
+      tabWidth: 4
+      # printWidth: 80 # ignored (fixed to 80)
+      formatter: sql-formatter # *sql-formatter|node-sql-parser
+      language: postgresql # [sql-formatter] *sql|mariadb|mysql|postgresql|db2|plsql|n1ql|redshift|spark|tsql
+      uppercase: false # [sql-formatter] (unsafe)
+      linesBetweenQueries: 2 # [sql-formatter]
+      ## type: table # [node-sql-parser] *table|column
+      ## database: postgresql # [node-sql-parser] bigquery|db2|hive|mariadb|*mysql|postgresql|transactsql|flinksql

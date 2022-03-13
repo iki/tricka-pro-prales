@@ -1,0 +1,42 @@
+{
+  "name": "survey-link",
+  "version": "0.2.0",
+  "description": "Link survey steps with redirects",
+  "repository": "https://github.com/iki/tricka-pro-prales",
+  "author": "iki (https://github.com/iki)",
+  "license": "MIT",
+  "main": "server.js",
+  "keywords": [
+    "survey",
+    "link",
+    "redirect",
+    "node",
+    "express",
+    "docker",
+    "heroku"
+  ],
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon server.js",
+    "start": "node server.js",
+    "logs": "heroku logs --tail -n 300",
+    "deploy": "run-s deploy:*",
+    "deploy:setup": "P=.permissions.json; set -e; git add -f $P; git commit -m \"chore: Add $P (deploy only)\" -o $P",
+    "deploy:link": "P=link; B=$P; set -e; ! git show-ref -q --heads $B || git branch -D $B; cd ..; git subtree split -P $P -b $B",
+    "deploy:push": "echo git push -f heroku link:main",
+    "deploy:clean": "echo git reset HEAD~1",
+    "setup:deploy": "heroku git:remote -a tricka-sachawa"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "http-errors": "^2.0.0",
+    "lodash": "^4.17.21",
+    "qs": "^6.10.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5"
+  }
+}

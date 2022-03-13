@@ -1,0 +1,193 @@
+.formLogoImg {
+  object-fit: contain;
+}
+
+div.form-header-group.header-large {
+  padding-bottom: 30px;
+}
+
+div.form-header-group.header-default {
+  background: rgba(0, 11, 11, 0.55);
+  margin: 0;
+}
+
+div.form-header-group .header-text .form-subHeader {
+  color: #f8ffcc;
+}
+
+label.form-sub-label {
+  color: #f8ffcc;
+}
+
+div.form-header-group.header-default .form-header {
+  color: #f8ffcc;
+}
+
+div.form-header-group .header-text {
+  color: #f8ffcc;
+  font-size: 16px;
+}
+
+.form-html > p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  font-size: 14pt;
+  text-align: center;
+}
+
+.supernova {
+  background-color: #244222;
+}
+.supernova body {
+  background-color: transparent;
+}
+.supernova .form-all,
+.form-all {
+  color: #eeffee;
+  background-color: rgba(11, 22, 22, 0.55);
+}
+.form-html {
+  color: #eeffee;
+}
+.form-header-group .form-header,
+.form-header-group .form-subHeader {
+  color: #eeffee;
+}
+.form-textbox,
+.form-textarea,
+.form-radio-other-input,
+.form-checkbox-other-input,
+.form-captcha input,
+.form-spinner input {
+  background-color: #eeffee;
+}
+
+.page-section li.form-line.form-line-error {
+  background-color: rgba(212, 212, 60, 0.32);
+}
+
+.page-section li.form-line.form-line-error .form-error-message {
+  background-color: #700707;
+  clear: both;
+  float: none;
+}
+
+.page-section
+  li.form-line.form-line-error
+  .form-error-message
+  .form-error-arrow {
+  border-bottom-color: #700707;
+}
+.page-section li.form-line.form-line-error input:not(#coupon-input),
+.page-section li.form-line.form-line-error textarea,
+.page-section li.form-line.form-line-error .form-validation-error {
+  border: 1px solid #700707;
+  box-shadow: 0 0 3px #700707;
+}
+
+.page-section li.form-line.form-line-active {
+  background-color: rgba(55, 75, 155, 0.55);
+}
+
+.page-section li.form-line[data-type='control_text'] {
+  margin: 0;
+}
+
+label#label_9 {
+  display: none;
+}
+
+.form-product-item.new_ui .form-product-container .form-product-details {
+  display: flex;
+  align-items: center;
+}
+
+.form-product-item.new_ui
+  .form-product-container
+  .form-product-details
+  [id*='_price'] {
+  /* display: none; */
+}
+
+.card-3col .form-product-item.new_ui.show_image .title_description {
+  justify-content: center;
+}
+
+.form-product-item.new_ui.sold_out_product
+  .form-product-item-detail.new_ui
+  > * {
+  background: rgba(20, 40, 40, 0.9);
+  opacity: 0.5;
+}
+
+.form-product-item.new_ui.just_sold_out_product {
+  background: rgba(212, 212, 60, 0.32);
+}
+
+.form-product-item.new_ui.not_enough_stock_product {
+  background: rgba(212, 212, 60, 0.32);
+}
+
+.form-product-item.new_ui
+  .form-product-container
+  .form-product-details
+  .payment-badge.sold-out-label {
+  opacity: 0.9;
+  color: #eeffee;
+  background: rgba(0, 0, 0, 0.7);
+  min-width: 10em;
+  padding: 8px;
+  margin: 0;
+}
+
+.form-product-item.new_ui
+  .form-product-container
+  .form-product-details
+  .payment-badge.just-sold-out-label {
+  color: #eeffee;
+  background: #700707;
+  min-width: 10em;
+  padding: 8px;
+  margin: 0;
+}
+
+.form-product-item.new_ui.show_image .image_area[role='img'] {
+  background-color: transparent;
+}
+
+.overlay.new_ui .overlay-content {
+  background-color: rgba(55, 75, 155, 0.55);
+}
+
+.overlay.new_ui .overlay-content .lb-close-button {
+  color: rgba(66, 90, 186, 0.55);
+  background-color: rgba(66, 90, 186, 0.55);
+}
+
+.overlay.new_ui .overlay-content .slider-navigation ul li {
+  background-color: inherit;
+}
+
+.payment_footer {
+  display: none;
+}
+
+.p_item_separator {
+  display: none;
+}
+
+.form-buttons-wrapper {
+  border: none;
+}
+
+.formFooter {
+  display: none;
+}
+
+.formFooter-heightMask {
+  height: 1px;
+}
+
+.direct-embed-widgets.qr-widget {
+  border: 5px solid white;
+}

@@ -1,0 +1,33 @@
+{
+  "name": "hasura-auth-webhook-pass",
+  "version": "0.2.0",
+  "description": "Hasura GraphQL Engine Auth Webhook passing allowed X-Hasura- headers",
+  "repository": "https://github.com/iki/tricka-pro-prales",
+  "author": "iki (https://github.com/iki)",
+  "license": "MIT",
+  "main": "server.js",
+  "keywords": [
+    "hasura",
+    "graphql",
+    "auth",
+    "webhook",
+    "node",
+    "express",
+    "docker",
+    "heroku"
+  ],
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

@@ -1,0 +1,8 @@
+- "!include public_color_keys.yaml"
+- "!include public_delivery_keys.yaml"
+- "!include public_gender_keys.yaml"
+- "!include public_pledges.yaml"
+- "!include public_reward_keys.yaml"
+- "!include public_rewards.yaml"
+- "!include public_tshirts.yaml"
+- "!include public_users.yaml"

@@ -1,0 +1,31 @@
+table:
+  name: gender_keys
+  schema: public
+configuration:
+  comment: null
+  custom_column_names: {}
+  custom_name: genderKey
+  custom_root_fields:
+    delete: genderKeysDelete
+    delete_by_pk: genderKeyDelete
+    insert: genderKeysInsert
+    insert_one: genderKeyInsert
+    select: genderKeys
+    select_aggregate: genderKeysAggregate
+    select_by_pk: genderKey
+    update: genderKeysUpdate
+    update_by_pk: genderKeyUpdate
+array_relationships:
+- name: tshirts
+  using:
+    foreign_key_constraint_on:
+      column: gender
+      table:
+        name: tshirts
+        schema: public
+select_permissions:
+- permission:
+    columns:
+    - id
+    filter: {}
+  role: public

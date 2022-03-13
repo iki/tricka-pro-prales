@@ -1,0 +1,4 @@
+# seed migrations
+*[0-9]_seed
+*[0-9]_seeds
+*[0-9]_seed_*
